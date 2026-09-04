@@ -326,33 +326,42 @@
     }
   </script>
 <!-- END: Interactive Feedback Script -->
+<!-- BEGIN: Form Submission Script -->
 <script data-purpose="form-submit">
-    const form = document.getElementById('hero-support-form');
-    if (form) {
-      form.addEventListener('submit', async function (e) {
+    const entryForm = document.getElementById('hero-support-form');
+
+    if (entryForm) {
+      entryForm.addEventListener('submit', async function(e) {
         e.preventDefault();
-        const submitBtn = form.querySelector('button[type="submit"]');
-        if (submitBtn) { submitBtn.disabled = true; }
+        const submitBtn = entryForm.querySelector('button[type="submit"]');
+        if (submitBtn) submitBtn.disabled = true;
+
         try {
-          const formData = new FormData(form);
-          if (!formData.get('guardian_consent')) {
-            formData.set('guardian_consent', 'on');
-          }
-          const res = await fetch('/api/submit', { method: 'POST', body: formData });
-          const data = await res.json();
-          if (res.ok && data.success) {
-            alert('تم إرسال النموذج بنجاح. شكراً لمساهمتك التضامنية!');
-            form.reset();
+          const payload = new FormData(entryForm);
+          const res = await fetch('/api/submit', { method: 'POST', body: payload });
+          const result = await res.json();
+
+          if (res.ok) {
+            alert('تم إرسال رسالتك بنجاح. شكراً لدعمك لبطلنا!');
+            entryForm.reset();
+            const fd = document.getElementById('file-name-display');
+            if (fd) {
+              fd.textContent = 'لم يتم اختيار أي ملف بعد';
+              fd.classList.remove('text-emerald-700', 'font-medium');
+              fd.classList.add('text-slate-500');
+            }
           } else {
-            alert(data.message || 'حدث خطأ أثناء إرسال النموذج');
+            alert(result.error || 'حدث خطأ أثناء الإرسال، حاول مرة أخرى.');
           }
         } catch (err) {
           alert('تعذر الاتصال بالخادم. حاول مرة أخرى.');
         } finally {
-          if (submitBtn) { submitBtn.disabled = false; }
+          if (submitBtn) submitBtn.disabled = false;
         }
       });
     }
   </script>
-<!-- END: Submit Script -->
+<!-- END: Form Submission Script -->
+
+
 </body></html>
