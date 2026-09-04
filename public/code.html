@@ -1,0 +1,742 @@
+<!DOCTYPE html><html dir="rtl" lang="ar"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>رسالة أو رسم لصديقي البطل - استمارة المشاركة</title>
+<!-- Tailwind CSS CDN with Forms and Container Queries plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script data-purpose="tailwind-config">
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f5f3ff',
+              100: '#ede9fe',
+              200: '#ddd6fe',
+              500: '#6d28d9',
+              600: '#5b21b6',
+              700: '#4c1d95',
+            }
+          },
+          fontFamily: {
+            cairo: ['Cairo', 'Segoe UI', 'Tahoma', 'sans-serif'],
+          }
+        }
+      }
+    };
+  </script>
+<!-- Google Fonts: Cairo -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style data-purpose="custom-typography">
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: #f0ebf8;
+    }
+  </style>
+<style data-purpose="form-interactions">
+    .card-focus-within:focus-within {
+      border-right: 4px solid #6d28d9;
+      box-shadow: 0 4px 14px 0 rgba(109, 40, 217, 0.08);
+    }
+    .custom-underline-input {
+      border: none;
+      border-bottom: 1.5px solid #d1d5db;
+      border-radius: 0;
+      padding-right: 0;
+      padding-left: 0;
+      background: transparent;
+      transition: border-color 0.2s ease;
+    }
+    .custom-underline-input:focus {
+      outline: none;
+      box-shadow: none;
+      border-bottom: 2px solid #6d28d9;
+    }
+  </style>
+</head>
+<body class="text-slate-800 antialiased min-h-screen py-6 px-4 md:py-10">
+<!-- BEGIN: MainContainer -->
+<main class="max-w-3xl mx-auto space-y-4" data-purpose="main-wrapper">
+<!-- BEGIN: TopLibraryBanner -->
+<div class="bg-gradient-to-r from-violet-700 via-purple-600 to-indigo-600 rounded-xl shadow-lg p-5 flex items-center gap-4" data-purpose="library-banner">
+  <div class="w-14 h-14 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center flex-shrink-0 border border-white/30">
+    <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+    </svg>
+  </div>
+  <div class="text-right flex-1">
+    <h1 class="text-xl md:text-2xl font-extrabold text-white leading-tight drop-shadow-sm">
+      المكتبة الرئيسية للمطالعة العمومية
+    </h1>
+    <p class="text-sm md:text-base font-semibold text-purple-100 mt-1">بوعينان - البليدة</p>
+  </div>
+  <button id="admin-toggle" type="button" title="لوحة الإدارة" class="flex-shrink-0 w-11 h-11 rounded-full bg-white/15 hover:bg-white/30 backdrop-blur-sm flex items-center justify-center border border-white/30 text-white transition active:scale-95 cursor-pointer">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path d="M12 15a2 2 0 100-4 2 2 0 000 4z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+      <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09a1.65 1.65 0 00-1-1.51 1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09a1.65 1.65 0 001.51-1 1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33h0a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51h0a1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82v0a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+    </svg>
+  </button>
+</div>
+<!-- END: TopLibraryBanner -->
+<!-- BEGIN: AdminPanel (integrated) -->
+<section id="admin-panel" class="hidden bg-white rounded-xl shadow-sm border border-slate-200/80 overflow-hidden" data-purpose="admin-panel">
+  <div class="h-2 w-full bg-gradient-to-r from-violet-700 via-purple-600 to-indigo-600"></div>
+  <div class="p-5 md:p-6 space-y-4">
+    <div class="flex items-center justify-between">
+      <h3 class="text-lg font-extrabold text-slate-900">لوحة الإدارة</h3>
+      <button id="admin-close" type="button" class="text-slate-400 hover:text-slate-700 p-1 rounded hover:bg-slate-100 transition">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Admin Login -->
+    <div id="admin-login-box">
+      <form id="admin-login-form" class="flex flex-col sm:flex-row gap-3 items-end">
+        <div class="flex-1 w-full">
+          <label class="block text-sm font-bold text-slate-900 mb-2" for="admin-password">كلمة مرور المسؤول</label>
+          <input type="password" id="admin-password" class="w-full border border-slate-300 rounded-lg px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-purple-600" placeholder="كلمة المرور">
+        </div>
+        <button type="submit" class="bg-purple-700 hover:bg-purple-800 text-white font-bold px-6 py-2.5 rounded-lg transition w-full sm:w-auto">دخول</button>
+      </form>
+      <p id="admin-login-error" class="hidden text-sm font-semibold text-red-600 bg-red-50 border border-red-200 rounded-lg px-4 py-2 mt-2">كلمة المرور غير صحيحة</p>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="admin-dashboard-box" class="hidden space-y-4">
+      <div class="flex items-center justify-between flex-wrap gap-2">
+        <div class="text-sm text-slate-500">إجمالي المسجلين: <span id="admin-stat-total" class="font-extrabold text-purple-700 text-lg">0</span></div>
+        <div class="flex items-center gap-2">
+          <button id="admin-refresh" type="button" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold px-4 py-2 rounded-lg transition">تحديث</button>
+          <button id="admin-export" type="button" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-2 rounded-lg transition">تنزيل CSV</button>
+          <button id="admin-logout" type="button" class="text-rose-600 hover:text-rose-800 font-semibold px-3 py-2 text-sm">خروج</button>
+        </div>
+      </div>
+      <div>
+        <input type="search" id="admin-search" class="w-full md:max-w-xs border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-purple-600" placeholder="بحث بالاسم، الهاتف، الولاية...">
+      </div>
+      <div class="overflow-x-auto border border-slate-200 rounded-lg">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-slate-50 text-slate-600">
+              <th class="px-4 py-3 text-right font-bold">اسم الطفل</th>
+              <th class="px-4 py-3 text-right font-bold">العمر</th>
+              <th class="px-4 py-3 text-right font-bold">الجنس</th>
+              <th class="px-4 py-3 text-right font-bold">رقم الهاتف</th>
+              <th class="px-4 py-3 text-right font-bold">الولاية</th>
+              <th class="px-4 py-3 text-right font-bold">البلدية</th>
+              <th class="px-4 py-3 text-right font-bold">الولي</th>
+              <th class="px-4 py-3 text-right font-bold">صلة القرابة</th>
+              <th class="px-4 py-3 text-right font-bold">التاريخ</th>
+              <th class="px-4 py-3 text-right font-bold">الملفات</th>
+            </tr>
+          </thead>
+          <tbody id="admin-table-body"></tbody>
+        </table>
+        <div id="admin-empty" class="hidden text-center text-slate-500 py-10">لا توجد بيانات مسجلة بعد</div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END: AdminPanel -->
+<!-- BEGIN: HeaderBannerCard -->
+<header class="bg-white rounded-xl shadow-sm border border-slate-200/80 overflow-hidden relative" data-purpose="header-card">
+<!-- Top Decorative Color Strip -->
+<div class="h-2 w-full bg-gradient-to-r from-violet-700 via-purple-600 to-indigo-600"></div>
+<div class="p-6 md:p-8 space-y-4">
+<h2 class="text-xl md:text-2xl font-extrabold text-slate-900 tracking-tight leading-relaxed pt-2">
+          رسالة أو رسم لصديقي البطل
+        </h2>
+<p class="text-slate-600 leading-relaxed text-base">
+          في إطار مبادرة تضامنية لفائدة الأطفال المتضررين من الحرائق ، نفتح هذه المساحة للأطفال لمشاركة رسوماتهم وكلماتهم ورسائلهم التضامنية ، تعبيرا عن المحبة والتآزر والأمل.
+        </p>
+<!-- Divider -->
+<hr class="border-slate-200">
+
+</div>
+</header>
+<!-- END: HeaderBannerCard -->
+<!-- BEGIN: FormContent -->
+<form class="space-y-4" data-purpose="entry-form" id="hero-support-form">
+<!-- Field: Child Name -->
+<section class="bg-white p-6 rounded-xl shadow-sm border border-slate-200/80 card-focus-within transition-all" data-purpose="field-child-name">
+<label class="block text-base font-bold text-slate-900 mb-2" for="child-name">
+          اسم الطفل <span class="text-red-500">*</span>
+</label>
+<div class="mt-4">
+<input class="custom-underline-input w-full text-slate-800 placeholder-slate-400 pb-2 text-base focus:ring-0" id="child-name" name="child_name" placeholder="إجابتك" required="" type="text">
+</div>
+</section>
+<!-- Field: Child Age -->
+<section class="bg-white p-6 rounded-xl shadow-sm border border-slate-200/80 card-focus-within transition-all" data-purpose="field-child-age">
+<label class="block text-base font-bold text-slate-900 mb-2" for="child-age">
+          العمر <span class="text-red-500">*</span>
+</label>
+<div class="mt-4">
+<input class="custom-underline-input w-full text-slate-800 placeholder-slate-400 pb-2 text-base focus:ring-0" id="child-age" max="18" min="1" name="child_age" placeholder="إجابتك (بالسنوات)" required="" type="number">
+</div>
+</section>
+<!-- Field: Guardian Phone -->
+<section class="bg-white p-6 rounded-xl shadow-sm border border-slate-200/80 card-focus-within transition-all" data-purpose="field-guardian-phone">
+<label class="block text-base font-bold text-slate-900 mb-2" for="guardian-phone">
+          رقم هاتف ولي الأمر <span class="text-red-500">*</span>
+</label>
+<div class="mt-4">
+<input class="custom-underline-input w-full text-slate-800 placeholder-slate-400 pb-2 text-base focus:ring-0 text-right" id="guardian-phone" name="guardian_phone" placeholder="إجابتك (مثال: 0612345678)" required="" type="tel">
+</div>
+</section>
+<!-- Field: Province / Wilaya -->
+<section class="bg-white p-6 rounded-xl shadow-sm border border-slate-200/80 card-focus-within transition-all" data-purpose="field-province">
+<label class="block text-base font-bold text-slate-900 mb-3" for="province-select">
+          الولاية
+        </label>
+<div class="relative max-w-xs">
+<select class="w-full bg-slate-50 border border-slate-300 text-slate-700 py-2.5 px-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-purple-600 cursor-pointer" id="province-select" name="province">
+<option disabled="" selected="" value="">اختيار</option>
+</select>
+</div>
+</section>
+<!-- Field: Municipality / Baladiya -->
+<section class="bg-white p-6 rounded-xl shadow-sm border border-slate-200/80 card-focus-within transition-all" data-purpose="field-municipality">
+<label class="block text-base font-bold text-slate-900 mb-3" for="municipality-select">
+          البلدية <span class="text-red-500">*</span>
+</label>
+<div class="relative max-w-xs">
+<select class="w-full bg-slate-50 border border-slate-300 text-slate-700 py-2.5 px-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-purple-600 cursor-pointer" id="municipality-select" name="municipality" required="">
+<option disabled="" selected="" value="">اختر الولاية أولاً</option>
+</select>
+</div>
+</section>
+<!-- Field: Gender -->
+<section class="bg-white p-6 rounded-xl shadow-sm border border-slate-200/80 card-focus-within transition-all" data-purpose="field-gender">
+<label class="block text-base font-bold text-slate-900 mb-3" for="gender-select">
+          الجنس <span class="text-red-500">*</span>
+</label>
+<div class="relative max-w-xs">
+<select class="w-full bg-slate-50 border border-slate-300 text-slate-700 py-2.5 px-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-purple-600 cursor-pointer" id="gender-select" name="gender" required="">
+<option disabled="" selected="" value="">اختيار</option>
+<option value="male">ذكر</option>
+<option value="female">أنثى</option>
+</select>
+</div>
+</section>
+<!-- Field: Guardian Name -->
+<section class="bg-white p-6 rounded-xl shadow-sm border border-slate-200/80 card-focus-within transition-all" data-purpose="field-guardian-name">
+<label class="block text-base font-bold text-slate-900 mb-2" for="guardian-name">
+          اسم الولي <span class="text-red-500">*</span>
+</label>
+<div class="mt-4">
+<input class="custom-underline-input w-full text-slate-800 placeholder-slate-400 pb-2 text-base focus:ring-0" id="guardian-name" name="guardian_name" placeholder="إجابتك" required="" type="text">
+</div>
+</section>
+<!-- Field: Relationship to child -->
+<section class="bg-white p-6 rounded-xl shadow-sm border border-slate-200/80 card-focus-within transition-all" data-purpose="field-relationship">
+<fieldset>
+<legend class="block text-base font-bold text-slate-900 mb-4">
+            صلة القرابة بالطفل
+          </legend>
+<div class="space-y-3">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-4 h-4 text-purple-600 focus:ring-purple-500 border-slate-300 cursor-pointer" name="relationship" type="radio" value="father">
+<span class="text-slate-700 group-hover:text-slate-900">الأب</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-4 h-4 text-purple-600 focus:ring-purple-500 border-slate-300 cursor-pointer" name="relationship" type="radio" value="mother">
+<span class="text-slate-700 group-hover:text-slate-900">الأم</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-4 h-4 text-purple-600 focus:ring-purple-500 border-slate-300 cursor-pointer" name="relationship" type="radio" value="legal_guardian">
+<span class="text-slate-700 group-hover:text-slate-900">الولي الشرعي</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-4 h-4 text-purple-600 focus:ring-purple-500 border-slate-300 cursor-pointer" name="relationship" type="radio" value="other">
+<span class="text-slate-700 group-hover:text-slate-900">أخرى</span>
+</label>
+</div>
+</fieldset>
+</section>
+<!-- Field: Guardian Consent Agreement -->
+<section class="bg-white p-6 rounded-xl shadow-sm border border-slate-200/80 card-focus-within transition-all" data-purpose="field-guardian-consent">
+<fieldset>
+<legend class="block text-base font-bold text-slate-900 mb-4 leading-relaxed">
+            اصرح بصفتي وليا للطفل بموافقتي على مشاركته في المنصة التضامنية مع الاطفال المتضررين من الحرائق <span class="text-red-500">*</span>
+</legend>
+<div class="space-y-3">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-5 h-5 text-purple-600 rounded focus:ring-purple-500 border-slate-300 cursor-pointer" name="guardian_consent" required="" type="checkbox">
+<span class="text-slate-800 font-medium group-hover:text-purple-700">اوافق</span>
+</label>
+</div>
+</fieldset>
+</section>
+<!-- Field: File Upload for Drawing or Letter -->
+<section class="bg-white p-6 rounded-xl shadow-sm border border-slate-200/80 card-focus-within transition-all" data-purpose="field-file-upload">
+<label class="block text-base font-bold text-slate-900 mb-1">
+          تحميل رسم الطفل أو رسالة تضامنية <span class="text-red-500">*</span>
+</label>
+<p class="text-xs text-slate-500 mb-5 leading-relaxed">
+          يمكنك تحميل ما يصل إلى 5 ملفًا متوافقًا: drawing أو presentation أو صور. الحد الأقصى هو 100 MB لكل ملف.
+        </p>
+<!-- Modern Upload Trigger Zone -->
+<div class="border-2 border-dashed border-slate-200 hover:border-purple-400 transition-colors rounded-xl p-5 bg-slate-50/50 space-y-4" id="file-dropzone">
+  <input accept="image/*,.pdf,.doc,.docx,.ppt,.pptx" class="hidden" id="file-input" multiple="" name="attachments" type="file">
+  <div class="flex flex-col items-center justify-center pt-1">
+    <button class="inline-flex items-center gap-2 border border-slate-300 bg-white hover:bg-slate-50 text-indigo-700 font-semibold px-5 py-2.5 rounded-md shadow-sm transition text-sm active:scale-95 cursor-pointer" onclick="document.getElementById('file-input').click()" type="button">
+      <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+      </svg>
+      <span class="">إضافة ملف آخر</span>
+    </button>
+    <span class="block text-xs text-slate-400 mt-2" id="file-name-display">يمكنك سحب وإفلات الملفات هنا أيضاً</span>
+  </div>
+</div>
+</section>
+<!-- Form Action Controls -->
+<div class="flex items-center justify-between pt-2 pb-6 px-1" data-purpose="form-actions">
+<button class="bg-purple-700 hover:bg-purple-800 text-white font-bold py-2.5 px-8 rounded-lg shadow-sm hover:shadow transition text-base active:scale-95" type="submit">
+          إرسال
+        </button>
+<button class="text-indigo-600 hover:text-indigo-800 font-medium text-sm hover:underline" type="reset">
+          محو النموذج
+        </button>
+</div>
+</form>
+<!-- END: FormContent -->
+<!-- BEGIN: Footer -->
+<footer class="text-center text-xs text-slate-500 space-y-3 pt-2 pb-8" data-purpose="form-footer">
+<p class="font-semibold text-purple-700" dir="ltr">a1810437@gmail.com</p>
+<!-- Developer Credit -->
+<div class="pt-4 border-t border-slate-200 mt-4">
+<p class="text-slate-600 font-semibold text-sm">تم البناء و تطوير من طرف <span class="text-purple-700 font-bold">عبد السلام عاشور</span></p>
+</div>
+
+</footer>
+<!-- END: Footer -->
+</main>
+<!-- END: MainContainer -->
+<!-- BEGIN: Interactive Feedback Script -->
+<script data-purpose="file-selection-feedback">
+    const fileInput = document.getElementById('file-input');
+    const fileNameDisplay = document.getElementById('file-name-display');
+
+    if (fileInput && fileNameDisplay) {
+      fileInput.addEventListener('change', function(e) {
+        if (e.target.files && e.target.files.length > 0) {
+          const count = e.target.files.length;
+          fileNameDisplay.textContent = count === 1 
+            ? `تم تحديد: ${e.target.files[0].name}` 
+            : `تم تحديد ${count} ملفات`;
+          fileNameDisplay.classList.remove('text-slate-500');
+          fileNameDisplay.classList.add('text-emerald-700', 'font-medium');
+        } else {
+          fileNameDisplay.textContent = 'لم يتم اختيار أي ملف بعد';
+          fileNameDisplay.classList.remove('text-emerald-700', 'font-medium');
+          fileNameDisplay.classList.add('text-slate-500');
+        }
+      });
+    }
+  </script>
+<!-- END: Interactive Feedback Script -->
+<!-- BEGIN: Wilayas & Municipalities Data Script -->
+<script data-purpose="wilayas-municipalities">
+    var WILAYAS = [
+      { "code": "01", "name": "أدرار" },
+      { "code": "02", "name": "الشلف" },
+      { "code": "03", "name": "الأغواط" },
+      { "code": "04", "name": "أم البواقي" },
+      { "code": "05", "name": "باتنة" },
+      { "code": "06", "name": "بجاية" },
+      { "code": "07", "name": "بسكرة" },
+      { "code": "08", "name": "بشار" },
+      { "code": "09", "name": "البليدة" },
+      { "code": "10", "name": "البويرة" },
+      { "code": "11", "name": "تمنراست" },
+      { "code": "12", "name": "تبسة" },
+      { "code": "13", "name": "تلمسان" },
+      { "code": "14", "name": "تيارت" },
+      { "code": "15", "name": "تيزي وزو" },
+      { "code": "16", "name": "الجزائر" },
+      { "code": "17", "name": "الجلفة" },
+      { "code": "18", "name": "جيجل" },
+      { "code": "19", "name": "سطيف" },
+      { "code": "20", "name": "سعيدة" },
+      { "code": "21", "name": "سكيكدة" },
+      { "code": "22", "name": "سيدي بلعباس" },
+      { "code": "23", "name": "عنابة" },
+      { "code": "24", "name": "قالمة" },
+      { "code": "25", "name": "قسنطينة" },
+      { "code": "26", "name": "المدية" },
+      { "code": "27", "name": "مستغانم" },
+      { "code": "28", "name": "المسيلة" },
+      { "code": "29", "name": "معسكر" },
+      { "code": "30", "name": "ورقلة" },
+      { "code": "31", "name": "وهران" },
+      { "code": "32", "name": "البيض" },
+      { "code": "33", "name": "إليزي" },
+      { "code": "34", "name": "برج بوعريريج" },
+      { "code": "35", "name": "بومرداس" },
+      { "code": "36", "name": "الطارف" },
+      { "code": "37", "name": "تندوف" },
+      { "code": "38", "name": "تيسمسيلت" },
+      { "code": "39", "name": "الوادي" },
+      { "code": "40", "name": "خنشلة" },
+      { "code": "41", "name": "سوق أهراس" },
+      { "code": "42", "name": "تيبازة" },
+      { "code": "43", "name": "ميلة" },
+      { "code": "44", "name": "عين الدفلى" },
+      { "code": "45", "name": "النعامة" },
+      { "code": "46", "name": "عين تموشنت" },
+      { "code": "47", "name": "غرداية" },
+      { "code": "48", "name": "غليزان" },
+      { "code": "49", "name": "تيميمون" },
+      { "code": "50", "name": "برج باجي مختار" },
+      { "code": "51", "name": "أولاد جلال" },
+      { "code": "52", "name": "بني عباس" },
+      { "code": "53", "name": "عين صالح" },
+      { "code": "54", "name": "عين قزام" },
+      { "code": "55", "name": "تقرت" },
+      { "code": "56", "name": "جانت" },
+      { "code": "57", "name": "المغير" },
+      { "code": "58", "name": "المنيعة" }
+    ];
+
+    var MUNICIPALITIES = {
+      "01": ["أدرار", "رقان", "تامنطيط", "زاوية كنتة", "سبع", "تسابيت", "تيميمون", "أولاد أحمد تيمي", "فنوغيل", "إن زغمير", "تيت", "أولاد سعيد", "تامست", "تيمقتن", "بسباس", "برج باجي مختار", "تيمياوين", "أولاد إبراهيم", "تامزرارين", "أولاد آيت الشيخ", "تيمياوين"],
+      "02": ["الشلف", "الكرس", "جديوية", "بوقادير", "أولاد فارس", "سنجاس", "وادي الفضة", "أولاد بن عبد القادر", "بني بوعتاب", "عين مران", "بئر صفر", "تاجنة", "تلعصة", "زبوجة", "أولاد عباس", "الهرش", "مصدق", "الكريمية", "أولاد سيدي براهيم", "بنايرية", "العكريش", "بني راشد", "بوزغاية", "سبسب", "الزبوجة", "حدهوم", "المنزل"],
+      "03": ["الأغواط", "قصر الحيران", "البيضاء", "الغيشة", "عين ماضي", "قلتة سيدي سعد", "آفلو", "بريدة", "السبقاق", "تاجموت", "الحويطة", "وادي مرة", "تاويالة", "سي مهدي", "عين العراك", "وادي مزي", "حاسي الدلاعة", "حاسي الرمل", "الزوية", "سيدي بوزيد", "الخنق", "القيلة", "الحاج مشري", "الغيشة"],
+      "04": ["أم البواقي", "عين البيضاء", "عين فكرون", "عين مليلة", "عين كرشة", "عين الزيتون", "عين ببوش", "عين بيدة", "عين الديس", "عين الخضراء", "عين البيضاء", "الأرزاز", "بئر الشهداء", "بئر حماد", "بئر الريش", "بئر حراش", "بئر سكرة", "بلالة", "بريش", "بوسلام", "بوغراطة", "بوعقال", "الجيلالي بن عمار", "الجوف", "الحسيان", "خروبة", "المسيد", "مسكيانة", "الهراولة", "سوق نعمان", "سيقوس", "تةالتة", "إيشون", "زاوية بيوضة", "الولجة", "التريعات", "الضحلة"],
+      "05": ["باتنة", "بريكة", "عين جاسر", "عين توتة", "تازولت", "العيون", "سريانة", "بوزينة", "نقاوس", "أريس", "شمرة", "المعذر", "بومقر", "عين ياقوت", "عين جرمة", "عين قشرة", "أولاد عياد", "أولاد سلامة", "قصر بلزمة", "تيمقاد", "سقانة", "بكيرية", "غسيرة", "زكار", "لازرو", "بوزاد", "مروانة", "حيدوسة", "تيغانمين", "فسديس", "الجزار", "رحبات", "إشمول", "بريكة", "سعيد", "مشونة", "ثنية العابد", "عين طوال", "قصبات"],
+      "06": ["بجاية", "أقبو", "أميزور", "القصر", "برباشة", "بنى جليل", "بنى كسيلة", "بنى مليكش", "أدكار", "أوقاس", "أمالو", "إفري أوقاس", "تيشي", "تيقصراين", "آيت إسماعيل", "آيت إيخر", "آيت رزين", "آيت سماعيل", "آيت تيزي", "أكفادو", "الميلية", "بني معوش", "إغيل علي", "شميني", "ذراع القيد", "درقينة", "فناية الماثن", "فنوغيل", "قصري النجمة", "كومونة", "كندراس", "لسكرة", "مصيسنا", "سيدي عياد", "سيدي عيش", "سيدي أيوب", "تخشيمت", "تامقرة", "تازمالت", "تيغرمة توعبدالله", "تيمزريت", "تاسفالة", "وادي غير", "تيمريشت", "واد القصر", "تيمازرت", "بوحمزة", "ثازابى"],
+      "07": ["بسكرة", "طولقة", "سيدي خالد", "ليوة", "زريبة الوادي", "أولاد جلال", "سيدي عقبة", "أورلال", "القنطرة", "مشونش", "الدوسن", "فوغالة", "بوشقرون", "الأخضرية", "جمورة", "أم الصباع", "الحوت", "بلسبور", "خنقة سيدي ناجي", "القبطية", "أولاد ساسي", "الرأس"], 
+      "08": ["بشار", "بنى ونيف", "القنادسة", "تاغيت", "إقلي", "العبادل", "بني عباس", "تمقرة", "كساب", "البرانيس", "موغل", "تيمودي", "كرزاز", "أولاد خضير", "بنى ونيف", "الزنازلة", "عين الصفراء", "البداري", "الوطة", "تبلبالة", "أولاد حمو", "مشرع الذهب", "النمرة", "البوليلة", "بوعوايج", "بوشقيف", "الذهنية", "الملاح", "بئر توتة"],
+      "09": ["البليدة", "بوفاريك", "بوقرة", "الأربعاء", "موزاية", "الشفة", "الجباية", "وادي العلايق", "بوعينان", "قرواو", "مفتاح", "عين رمانة", "الشريعة", "الأوربسي", "بني مراد", "بني تامو", "مزفران", "سيدي محمد العوني", "المروج", "الصومعة", "حمام ملوان", "بوفاريك", "بني بهار", "بن داود", "بنيسليمان", "أولاد يعيش", "الكفاح", "الصومعة"], 
+      "10": ["البويرة", "الأخضرية", "سور الغزلان", "بشلول", "عين الحجر", "برج أوخريص", "مشداالة", "الحيصر", "بئر غبالو", "عين الترك", "عمر البويرة", "قادرية", "الهاشمية", "المقراني", "سيد الكبير", "ديرة", "الوكرية", "أهل القصر", "روراوة", "حيزر", "بوكرم", "أولاد راشد", "الخضارية", "معلة", "الصداقة", "الحبوشي", "عين العلوي", "التماسين", "شريفية", "حنيفي", "زيز", "أقبالو", "بئر غبالو", "زمورة"], 
+      "11": ["تمنراست", "أبالسة", "تان زرواط", "إدلس", "عين امقيد", "عين صالح", "فوكرت", "عين الأرايا", "إن أمقل", "تاظروك", "تيت عندم", "سيلت", "اصحل", "براقي", "تين الصوف", "جانت", "آجلة", "تدرنت", "إيفيرار", "أوجت", "إمرزيز", "تمنراست"],
+      "12": ["تبسة", "الشريعة", "بئر العاتر", "العوينات", "المريج", "نقرين", "بكارية", "فركان", "الونزة", "مرسط", "بوخضرة", "الزنطيب", "وقدة", "الدريعة", "بئر مقدم", "قريس", "ثليجان", "الحويجبات", "بئر بوحوش", "سطاح", "السبت", "بئر الذهب", "الشريعة", "نخاص", "عين زرقاء"],
+      "13": ["تلمسان", "شتوان", "مغنية", "الرمشي", "ندرومة", "سبدو", "بنى سنوس", "الغزوات", "حمام بوغرارة", "بني مستار", "بنى صميل", "عين فزة", "أولاد ميمون", "الحناية", "عين تالوت", "سيدي العبدلي", "بني بوسعيد", "أولاد رحمون", "بني ونيف", "حيذة", "دار يغمراسن", "الطوير", "فلاوسن", "عين غرابة", "امير مقومة", "أولاد سيدي صالح", "معسكر", "صياد", "العمور", "زرارة", "بوابة", "أم العساكر", "قصر الكبير", "الهدبة", "منسطير", "عينيات", "سيدي الطيبي"],
+      "14": ["تيارت", "قصر الشلالة", "مهدية", "دحموني", "عين الذهب", "الرحوية", "فرندة", "عين كرمس", "دائرة السوقر", "السوقر", "زمالة أمير عبد القادر", "ماتر", "سي عبد الغني", "أسدية", "المالح", "الوسقية", "فرندة", "عين الحديد", "تخمارت", "دائرة الكاف", "الكاف", "الكرمل", "التياغة", "عين بيضاء", "بوقرة", "الغويرية", "الزلوف", "عين برطحة", "ماقرة", "السوقدية", "العراوة", "بوزجارزة", "عين بوشقيف", "جبل الطير", "بلهديل", "سيدي علي ملال", "سيدي بوزيد", "سيدي لعجال", "بوهلال", "العبادية"],
+      "15": ["تيزي وزو", "عين الحمام", "عزازقة", "ذراع بن خدة", "الأربعاء ناث إيراثن", "بوغني", "بو قاسم", "مكيرة", "تيقزيرت", "إفرحونان", "أزفون", "إيليتن", "أقرو", "إمناتسن", "يفرن", "تاقة", "الأرجة", "بني دوالة", "بني يني", "بني ذكال", "بني عجيبة", "بني زمنزر", "بني زكي", "بني قسيلة", "بني ملكش", "إيردجن", "ببورة", "تادمايت", "قوراية", "أيت إصماعيل", "إعفرين", "تيزي نثلاثة", "تيقنايت", "فرحاتة", "آيت بومهدي", "آيت عيسى ميمون", "آيت عودل", "أشخيرة", "أقروم", "أيت يحيى", "آيت محمود", "آيت شفاء", "تمقرة", "تيقزا", "بني شقان", "أذقابل", "تيميزار", "أجنين", "بني عمران", "مسعود", "ذكرار", "إيلولة أموقران", "البويرة", "إعصقة", "آيت قاسي", "يقورن", "مريقات", "إفسا", "تيزي نيثيثة", "إيجسي", "سيدي عمار", "آيت يحيي", "آيت طلحة", "آيت بو عادل", "تا وأكلة", "آيت سيدي علي"],
+      "16": ["الجزائر", "بئر مراد رايس", "الرويبة", "براقي", "أولاد فايت", "الدار البيضاء", "باب الزوار", "الحراش", "حسين داي", "بئر خذام", "بوفاريك", "بلدية القبة", "باب الوادي", "سيدي امحمد", "المدنية", "بلوزداد", "الأبيار", "الشراقة", "عين البنيان", "سطاوالي", "زرالدة", "الدرارية", "بئر التوتة", "الرحمانية", "بئر مراد رايس", "باب الزوار", "وادي السمار", "راس الطابق", "خربة", "الحمامات", "المرسى", "عين طاية", "برج الكيفان", "المدنية", "حيدرة", "باراكي", "الحسيين", "المغارية", "عين الزردة", "باش جراح", "برج منايل", "القبة", "البرارحة", "حسين داي", "الدار البيضاء", "المقرية", "برج الكيفان", "بئر الجير", "زيرالدا", "المعاريف", "عين البنيان", "بئر خادم", "الشراقة", "درارية", "العاشور", "العمرية", "سطاوالي", "البئر", "المغالدة", "السحاولة", "الناصرية", "أولاد شبل", "الحطاب", "بئر توتة", "مزافران", "الفروج", "علي أغيم", "اسطنوب", "عين اغرق"],
+      "17": ["الجلفة", "عين وسارة", "حاسي بحبح", "بئين", "حاسي العناصر", "دار الشيوخ", "الإدريسية", "سد الرحال", "مسعد", "أم العظام", "حاسي قدية", "عرفة", "عين فقة", "تعظميت", "المريبعة", "قدمية", "الزعفران", "سلمانة", "برارية", "الصمارية", "الخراشة", "بن يخلف", "حاسي خلادي", "القطار", "بويرة الأحداب"],
+      "18": ["جيجل", "الميلية", "تاهير", "الطاهير", "السطارة", "القاهرة", "الأمير عبد القادر", "شقيقة", "زيامة منصورية", "العنصر", "الخميسي", "سيدي معروف", "سيدي عبد العزيز", "بني يمين", "جمعة بنى حبيبي", "الجيملة", "بني فجال", "أم العباس", "السلامية", "بني سراج", "الأولاد بوعلي", "الجمعة", "بليارة", "قيلمية", "عبد العزيز", "قصار", "سيدي أحمد", "عمارية", "بني حبيب", "الشحنة", "مرشانة", "البوسيف", "السيلية", "إيراقن", "أمحندر"],
+      "19": ["سطيف", "العلمة", "ماسة", "عين ولمان", "بوقاعة", "عين أزال", "جميلة", "الرصفة", "صالح باي", "مانع", "عين أرنات", "عين الكبيرة", "عين عباسة", "عين الحجل", "أولاد محند", "أولاد عاصف", "أولاد بوتيدة", "أولاد واذنان", "بئر العنصر", "بئر العرش", "بئر النسرية", "بئر السبع", "بئر عباس", "بئر علي بن خليفة", "بئرتة", "بئر الجباس", "بئر العروس", "بئر الزنادق", "بئر العزلة", "بئر الرخمة", "بئر العرص", "بئر السيب", "بئر الزيران", "بئر الطاهر", "بئر واهلان", "بئر القندوس", "بئر البوحلي", "بئر السبع", "بئر عين تورت", "بئر الحمل", "بئر الزريبة", "بئر العنصر", "بئر الجرباء", "بئر القصعة", "بئر الوطاة", "بئر عين الكرموت", "بئر عين الصلاح", "بئر عين الطويل", "بئر عين القصب", "بئر عين السبع", "بئر عين الأسود", "بئر عين الأجرد", "بئر عين الشاهد", "بئر عين الجمل", "بئر عين القديم", "بئر عين الخباري", "بئر عين الصفرا", "بئر عين الأقرم", "بئر عين دندن", "بئر عين بومدفعة", "بئر عين الزانة", "بئر عين قعدت", "بئر عين الشريعة", "بئر عين الخلوة", "بئر عين الدفلة", "بئر عين عنتير", "بئر عين الرقراق"],
+      "20": ["سعيدة", "الحساسنة", "عين الحجر", "يوب", "سيدي بوبكر", "وادي الحية", "وادي تاغية", "أولاد خالد", "السفرية", "عين الفيلالة", "معمورية", "العمامرة", "صور الغزلان", "فيصة", "أولاد العزازة", "منصورة", "الوادي الأخضر", "عين السخونة", "الحوة", "بوغزاول", "بئر حكيم", "الزمول", "عادة"],
+      "21": ["سكيكدة", "القل", "الحدائق", "تمالوس", "السطارة", "أولاد عطية", "بنى زيد", "الفيضا", "القبالي", "بوطهة", "أم الطوب", "العالية", "الزيتونة", "ولد دراج", "رمز جمال", "بني بشير", "بني عياش", "بني ياجر", "علماء النحاس", "بني بنان", "بني ياقوب", "بني عمران", "زانة", "كرباز", "المستحاوة", "الخازن", "مزدودة", "سيدي مزغيش", "حروش", "عين شرشار", "بني شكقانة", "الرمية", "بني قيس", "بني غزلان", "بني صهر", "بني سعيد", "قنيين", "بني عود", "السيدة"],
+      "22": ["سيدي بلعباس", "بن بادر", "سفيزف", "بني وافرة", "مرحوم", "رهيو", "تسالة", "بنى عكارة", "بنى متنى", "بنى لوطة", "سيدي الحسني", "نصار", "بنى عمر", "ملالت", "سيدي حمادوش", "الطبيبة", "مشتري", "سيدي خالد", "زهابا", "المرحوم", "سيدي علي بوسيدي", "الغاول", "سيدي يوسف", "سيدي سليمان", "بوحجة", "سيدي عابد", "سيدي غمازة", "بنى خالد", "سيدي دحوان", "سيدي بوحارة", "شيخي", "معارف", "بني قتيلة", "سيدي بوطاجين", "سيدي بوعلام", "بومورد", "سيدي الجيلالي", "بلحاجي", "عين الثلة", "بنى بوزيد", "سيدي بلعباس"],
+      "23": ["عنابة", "السرس", "برحال", "سيدي عمار", "البوني", "الحجار", "شطايبي", "عين الباردة", "البخيتة", "عين الريش", "عين عباية", "عين جوهرة", "وإنزا", "سيردودة", "سيدي أحمد توبة", "البراكتة", "عين محيسة", "الزمروري", "أم العظام", "بنى ورثيلان", "عين شركار", "سيدي حداد", "تالة سيدي حامد", "عين بنية"],
+      "24": ["قالمة", "وادى الزناتي", "بوشقوف", "النجمة", "بوفاجوم", "نشماية", "رأس العقبة", "عين بن عودة", "عين بن خلوف", "عين صندل", "عين الشقراء", "عين حسين", "عين مخلوف", "العوينات", "بئر الصف", "بولاية", "الجرما", "الحمامة", "خميستي", "قلعة بوصبع", "ليبات", "مجاز عمار", "مجاز الشكاك", "المسعودية", "وادي فراغة", "سلاوة عنونة", "سطارة", "تليلين", "إبويس", "قرمود", "بن مبروك", "وادي الشارات", "جبل طبق", "التوخة"],
+      "25": ["قسنطينة", "الخروب", "ديدوش مراد", "عين سمارة", "حامة بوزيان", "بويهة عنناوة", "ابن باديس", "أمالو", "ديدوش مراد", "ابن زياد", "الزهمة", "بغشة", "الحميمة", "عين النصير", "صالح دراجي", "قسنطينة", "الخروب", "الفخرية", "ميصرة"],
+      "26": ["المدية", "العمارية", "العش", "جبال", "بني سليمان", "تابلاط", "مفتاح", "سيدي نعمان", "الشهبونية", "أم البنيين", "بيلوار", "بوغار", "تيزي مهدي", "المهبولة", "الخربة", "سبقان", "القلب الأبيض", "بن شغيب", "الحمدانية", "مزواي", "المدية", "الفلوس", "الافحيس", "الحبيب", "علمية", "القصعة", "السواقي", "العونية", "راس العيون", "أولاد اشراف", "أولاد هادي", "أولاد بوعلي", "بئر تسونات", "زبربر", "سيدي دامد", "سيدي زهار", "سيدي غريب", "سيدي ماكلوف", "الصوالبية", "تلات", "أولاد عطيو", "العزة", "بني عمران", "بلعباس", "منبع", "سيدي بيبي", "تاوغزوت", "مرسول", "العالية", "علي الهيلمي", "سيدي عيشون", "سيدي الجليل", "المدية", "تاجرزة", "قرن المنصور", "الرويبة", "يونس", "سيدي زهري", "عين اوبل", "الحمدانية", "السماقية"],
+      "27": ["مستغانم", "عين النويصي", "حاسي ماماش", "سيدي علي", "عقاز", "ماسرارة", "خطوط", "مزرورة", "نكمارية", "فرنانة", "عين نويسي", "سيدي علي شريف", "سيدي بختي", "الهباط", "عين سيدي شريف", "عبد المالك رمضان", "بلعهل", "بلدية ماسرارة", "حاسي وادي نحلة", "خير الدين", "مزوار", "الأعشاش", "عين السبت", "سيرات", "بن عبد المالك", "سيدي بوبكر", "أمسعيد", "العرواضية", "مستغانم", "المسرى", "السور", "صول", "الأبيض", "وادي سابق", "أولاد فرج", "الأنصر", "غول", "برج الحور", "بوناصر", "الحمري", "القلعة"],
+      "28": ["المسيلة", "بوقرة", "سيدي عامر", "الضيق", "تلاف", "بن سرور", "بوسعادة", "عين الملح", "أولاد سيدي إبراهيم", "سيدي عيسى", "الولتة", "سيدي مرزوق", "المدينة", "الحوامد", "القواسم", "المسيل", "الوادي", "بليل", "ملاشت", "شلال", "سيدي خالد", "زليكان", "ولاد سيدي بلقاسم", "أم الخير", "بوسعادة", "شلالة", "عين فارس", "سيدي بوذلبة", "أولاد حمو", "الميل", "زوارة", "بئر فودة", "عين الحجل", "المجاطية", "سعودي", "قري", "بن سراعي"],
+      "29": ["معسكر", "سيق", "تيزي", "غرايس", "المحمدية", "بوحنيفية", "الأبيض سيدي الشيخ", "عين فارس", "بوقيرت", "عقاز", "سد الغنــام", "خالد", "المناور", "مكحلة", "القدم", "تاسلمت", "بوتراح", "المعمارية", "عين أفرم", "غنم", "الهشم", "باوي", "فرات", "سيدي بوسمار", "أولاد عزام", "الحشم", "غافوز", "سيدي عبد المؤمن", "بني ظبيان", "ماطموس", "مكناسة", "سيدي عبد الله", "بن عاشور", "السق", "العقب", "الملابية", "زممية", "أولاد حموش", "بنى بزيان", "المهاجرين", "الطيفة", "معاوية", "سيدي عبد الحميد", "سيدي قادة", "سيدي بودلة", "موسى.يت", "سيدي محمد", "سيدي موسى", "العامرة", "بلحاج", "بين الثاني", "بين الأول", "عبيدات", "سيدي مصطفى", "سيدي بلقوسم"],
+      "30": ["ورقلة", "الرويسات", "الحجيرة", "انقوسة", "سيدي خويلد", "عين البيضاء", "حاسي مسعود", "البرمة", "النزلة", "الطيب", "الخضراء", "الرقبة", "تماسين", "سيدي عمران", "الزاوية", "تبسبست", "الحاجب", "عين بوشقيف", "المقران", "حاسي إبراهيم", "سيدي أمحمد", "الوضيعة", "الفيلالي", "النوارة", "أحفاد العراك", "اليقوبة", "المنبر", "سيدي سلطان", "الشط", "الزاب"],
+      "31": ["وهران", "عين الترك", "أرزور", "بئر الجير", "السانية", "قديل", "حاسي بونيف", "بوسفر", "مرسى الحجاج", "بئر الكرمة", "المسطوحة", "الحظارة", "بلقايد", "المرسي", "سيدي الشحمي", "وادي تليلت", "المنزه", "بوتميسيوس", "الكرمة", "العرجة", "حاسي البغلة", "قديل", "قلعة البوز", "ميسير", "الزوية", "السغير", "بن الفحل"],
+      "32": ["البيض", "بوقطب", "بريزينة", "الرقيب", "العرنيقة", "بومرد", "بريزينة", "عين سيدي تعب", "الهاشم", "الزامطة", "بقطع", "الخيثر", "الملحقة", "سيدي سليمان", "بن خليل", "الوادي النامة", "الشلخة", "الحضنات", "سيدي شقيق", "سيدي داود", "سيدي عمر", "الثرية", "الزواطة", "الطريقة", "سيدي معروف", "أولاد مهدي", "سيدي عيسى", "بلعادة"],
+      "33": ["إليزي", "دبداب", "عوينت أحيتات", "إين أمناس", "تاسغيل", "بواطن", "فلاليل", "أيمة", "برج عمر إدريس", "أقنار", "إهاجر", "إيليزي", "تيرست", "إيليز"],
+      "34": ["برج بوعريريج", "رأس الوادي", "الحمادية", "المجبرية", "عين تاغروت", "المنصورة", "عين البرج", "عين ثالة", "بنى يوسف", "السوادية", "أقبلصبل", "زمنة", "العمامة", "تاوريرة", "بني مروان", "القيقبة", "القنطرة", "المنشفة", "لكحال", "عين التوتة", "البرج", "بئراء", "بئر الطاهر", "بئر بارة", "بئر الحمام", "بئر الرجرة", "بئر العرصة", "بئر الشيخ", "بئر شرايت", "بئر عين الثمر", "بئر عين الشابه", "بئر عين استيل", "بئر عين الترمول", "بئر عين بغورة", "بئر عين بوسلام", "بئر عين بوكونة", "بئر عين سيدي خليفة", "بئر عين سيدي الحر", "بئر عين سيدي العايب", "بئر عين سيدي مروان", "بئر عين سيدي ريحان", "بئر عين سيدي العربي", "بئر عين سيدي غياث", "بئر عين سيدي يوسف", "بئر عين سيدي الطيب", "بئر عين سيدي ياسين", "بئر عين سيدي سالم", "بئر عين سيدي عبد القادر"],
+      "35": ["بومرداس", "برج منايل", "دلس", "الناصرية", "بغلية", "سيدي داود", "الثنية", "يسر", "تيقذى", "بني عمران", "قورصو", "أعمال تيقذ", "الأربعاء", "زموري", "عين زانة", "العمال", "سيدي ميدي", "سيدي علي", "جمال شببت", "أم الليلال", "عسلة", "برج عباس", "شنيجل", "القمري", "بوقطوس", "الأكال", "الفتاح", "بوشلال", "الروايبة", "بئر الأرض", "بوروبا", "عين الماء", "الثنية", "العبايسة", "الحبيبة", "سيدي عون", "الساعي", "بني أمران", "بلدية الدلز", "بلدية الأرس"],
+      "36": ["الطارف", "بن مهيدي", "الدريعة", "بوحطاطة", "سيدي بيبي", "الشطاب", "القل", "البسباس", "عين العسل", "الساحل", "العلواب", "أم الطهر", "برحال", "الزوادرية", "بنى عمران", "بلال لعرق", "السهلة", "بئر سعيد", "عين تومإنت", "الطارف", "بن ملحوظة", "القري", "السعيد", "بن مرجي", "العبادلة", "بن مهدي", "المرجانة", "القيقبة", "الورشان", "بن يوسف", "عمر التافي", "بني أمهات", "الصوالحات", "وحيان", "البرهنية", "السيدي"],
+      "37": ["تندوف", "أم العسل", "الجراح", "تيسة", "بشرية القصر", "تندوف", "قصر الجزائرية", "حاسي كبيير", "بئر أم علي", "تين كلت", "رباعة", "قصر الطراقة", "التيمعينة", "السمرة", "الحراوية", "الخضارة", "القوس", "بئر البرشان", "عين عربه", "سيدي مرزوق"],
+      "38": ["تيسمسيلت", "برج بونعامة", "الأزهرية", "ثنية الأحد", "خميستي", "عماري", "سيدي بوقبيلة", "الخضرية", "سيدي سليمان", "العكول", "لحيويتة", "الزمالة", "بئر بوكالة", "المعاصم", "الأولى ثنية", "دحمانية", "منصرية", "سيدي العايب", "الحوضية", "بن حليم", "الحجاجة", "سيدي حمانو", "العرارة"],
+      "39": ["الوادي", "قمار", "دبيلة", "الطيبات", "الرقيقبة", "المغير", "سيدي عمران", "تلدجة", "الزاوية", "السنتم", "بئر الثور", "انهاب", "الحساني", "الدبيلة", "الوادي", "بنان", "المقرن", "تمرنة", "غززابة", "الأميرة", "جماعة الواد", "قمـار", "الصبايحية", "سيلوي", "الحجر الأحمر", "الدوح", "مقرن", "قتبان", "الصدوق", "الرشايدة", "النوي", "أم الزيوشة", "المايد", "بن زريق", "سيدي تيمبك", "الطرفاوي", "المشروع", "المنعرات", "خباب", "الفقرة", "الأطراف", "موافي", "الحائط", "السامة", "العقلة", "الزاوية"],
+      "40": ["خنشلة", "أولاد رشاش", "قايس", "ششر", "الخجر", "الممشة", "أم الطوب", "الحدبة", "أنسيغة", "طريق الأوجات", "بابار", "سيدي بوعقاز", "عمامرة", "عين الزرقاء", "الولجة", "الزمامة", "متبوعة", "قمقمة", "الملحقة", "بئر الحمام", "بن صديق", "سد الوقار", "عين معلوف", "بئر الثنية", "الميلاء", "الرقاع", "المدينة", "بئر الورثان", "القراين", "اعمران", "الحوش", "بويس", "عين نقطة", "المرجة", "العوينات", "أولاد أحمو", "بئر العجاجرة", "بئر الأعمى", "بئر المدور", "بئر عثمان", "دهارة", "الزرقاء", "الخنقة", "بئر السبيعي", "بالشمزابات"],
+      "41": ["سوق أهراس", "مداوروش", "الحدادة", "أم العظائم", "سدراتة", "بئر بوحوش", "طريقة", "سيدي الحاجية", "فيلة", "الجعفرية", "الولاية", "بئر الشمال", "المشيرات", "البرطيل", "زهور", "قاطعة", "الفواضل", "الخريطية", "سيدي عبد العزيز", "المراونة", "الويني", "القرية", "سيدي عزالي", "سيدي سليم", "الصباح", "عين طومة", "الماسورة", "المجازر", "جنان", "بني نوال", "طحامة", "الزوريعة", "بعدوس", "الدريعة", "الخزانية", "الرمال", "سيدي يوسف", "بئر الروح", "الزقم", "السكيكدة", "مشونش", "السبع", "العروبة", "خيط الماء", "ثورة", "السوقره", "برج الأصنام", "مرجة", "العوامة", "الطوزة", "بني ورثان", "سيدي مدين", "الطاهر", "وهران", "سوق أهراس"],
+      "42": ["تيبازة", "القليعة", "حجوط", "أحبار", "بوقرة", "الناظور", "شرشال", "سيدي غيلاس", "داموس", "عين تقلايت", "مراد", "الحامة", "سيدي راشد", "بقوس", "عين قرمز", "مبراخة", "الأربعاء", "شلالة", "ماتلون", "قادحية", "حمادي", "عين تالوت", "خميس الخشنة", "الحراشة", "عين بومعقة", "سيدي الحذرة", "فوكة", "كاب جني", "بئر مخليف", "سيدي عبيد", "الشهاون", "أم العساكر", "بلعباد", "عين التينة", "الساحل", "عين مرابط", "تبازة", "بن عمر", "العمرية", "بني بوطار", "بئر سيدي محمد", "العشاك", "بئر عاشور", "بئر النحاس", "بئر السلطاني", "بئر المجاوب", "بئر الطارجي", "بئر الزاوي", "بئر عين مأخر"],
+      "43": ["ميلة", "ميلة", "فرجيوة", "شلغوم العيد", "عين البيضاء", "تاجنانت", "وادي النجاء", "المشيرة", "الملالف", "التلية", "روجاسة", "عادل", "سيدي خلوف", "بوحمدان", "تاسالنت", "عين التينة", "الأياسين", "العمق", "أم سكيكدة", "المعزوز", "بن يحيى", "سلايلة", "الخوا", "النوادي", "بئر بوعرفة", "الشقة", "بني عتبة", "بني رخوش", "الأحداب", "عتامنة", "بني سعد", "اخانة", "بني سنوس", "أولاد عيسى", "عين الحطبة", "المطلوب", "عين خمسة", "مشيرة", "قماس", "الزرارية", "قباب", "سيدي أحمد", "عين بودروة", "السماورية", "أولاد بوقسير"],
+      "44": ["عين الدفلى", "مليانة", "الحسنات", "جليعة", "العباد", "الأخوان", "برية", "شلاب", "بئر بن تابت", "حمام ريغة", "الحدودية", "زكارية", "بوشكالة", "علية", "الحمادية", "سيدي بومدين", "عين التركي", "عين الأخضر", "بئر عياد", "وادي الفضة", "عين الدفلى", "عين بن معروش", "بئر ساتور", "بьер الرمل", "عين الطالب", "عين قارة", "العباسة", "مسلمون", "الحرية", "عين بوشقوف", "بعين", "بلدية بعلية", "أولاد بغدارة", "الخية", "سيدي ذاكر", "أولاد العراب", "بن الأحماد", "بئر عيسى", "بئر بوعزة", "بئر بوحنيفية", "بئر الخثري", "بئر خلافة", "بئر مسعود", "بئر معروف", "بئر موزهم", "بئر حمدان", "بئر قمعة", "بئر دلهوم", "بئر رماده", "بئر زلوف", "بئر شلا", "بئر بعيدة", "بئر صباب", "بئر السبع", "بئر صوفا", "بئر الناقة", "بئر الطويلة"],
+      "45": ["النعامة", "مشرية", "عين الصفراء", "العين", "الأصنام", "مغرار", "سيدي عبد التمومة", "مغرار", "المنبعبات", "البطين", "العرقسامة", "سيدي العياشي", "الشيخ النجار", "العيشات", "الجورف", "النعامة", "بقرات", "أولاد بوحديد", "بئر جرار", "عين الكرمة", "القصبة", "بوغزاول", "الطابية", "سيدي صادق", "بلعبادة", "الشرفة", "أولاد بركة", "سيدي بوقنة", "أولاد يوسف", "الشملية", "هاشم"],
+      "46": ["عين تموشنت", "حمام بو حجر", "المالح", "الأمير عبد القادر", "بني والن", "بن عوده", "بن عيسى", "وهمار", "طامران", "عين الأربعاء", "عين الكرمة", "عين الخضراء", "العامري", "الشعيرة", "السعيدة", "بني آغ", "بن صاف", "بن عمر", "عين البيضاء", "عين بوقطار", "لعمارة", "الزوية", "عين تموشنت", "سيدي بن عدة", "سيدي بوزيد", "سيدي سعيد", "سيدي عبد الله", "سيدي بومدين"],
+      "47": ["غرداية", "متليلي", "ضاية بن ضحوة", "المنيعة", "الغرداية", "بريان", "القرارة", "زلفانة", "حاسي القارة", "بئر سواد", "سبسب", "بن يخصبار", "لحبال", "النصرانية", "عين الصفراء", "المنديلة", "بني إسجن", "بني يخلف", "العطف", "الجنون", "الغرداية", "تيست", "بالعيطة", "عالية", "النفوس", "الفراقع"],
+      "48": ["غليزان", "مازونة", "عمي موسى", "زمورة", "مزنا وسون الملاحة", "سيدي عبد القادر", "ويهونان", "عين الدفلى", "الرجم", "سيدي علي بن ابراهيم", "بني داود", "واريزان", "الحاسة", "السوقة", "صهب", "ملابشيش", "بني زنازير", "بن عمار", "بني قنديل", "بني عومر", "عين الرهيط", "غليزان", "وادي السلام", "دار الديس", "الرمبلة", "الورد", "أولاد أحمد", "الضهرة", "سيدي تشغيب", "عين مخصوص", "الملهولة", "بردة", "سيدي حمد", "الحبيشية", "عربة", "القلعة", "سيدي جلال", "قصبة", "سيدي عياد", "الشاملة", "مشيري", "الملحولة", "سيدي بن عودة", "بئر البر", "الغوطة", "الدود", "الحميدية", "سيدي قدرة", "أولاد رشيد", "العواسجة", "بن يوسف", "سيدي أحمد", "الجزائر الغربية"],
+      "49": ["تيميمون", "أولاد سعيد", "القورارة", "أقبلي", "أولاد السعيدة", "عفار", "تيميمون", "تاليت", "تادمايت", "الطفيش", "أولاد هني", "زوينت", "أولاد القاضي", "فريقة", "أولاد بركة", "انسوف", "تمسلمت", "أولاد بوعبدالله", "بئر تمامت", "أولاد مصران", "أولاد بوغا", "تمسا", "أولاد اعمر", "القريطة", "أولاد حماد", "أولاد حمو"],
+      "50": ["برج باجي مختار", "إثورون", "عين الغزال", "بوحوصي", "الموعين", "تيمياوين", "برج باجي مختار", "الفضاء", "أولاد علي بن قاسم", "القارة", "عين أم الوصيف", "أم الخطيب", "تيسات", "أولاد باسعيد", "أولاد عيسى", "أولاد الحسن", "قرية النخيل", "أولاد امحمد", "أولاد الشريف", "قرية الرواية", "الطيب"],
+      "51": ["أولاد جلال", "الدوسن", "الشعلة", "الشعبة", "أولاد جلال", "بئر الخيرانة", "الليشة", "السوق", "أولاد سعد", "البرايكة", "المجدب", "القدورجة", "أولاد علي", "أولاد موسى", "وادي جدي", "الرقاقطة", "بولفاريس", "أولاد بوقفة", "أولاد عبد القادر", "أولاد شعيب"],
+      "52": ["بني عباس", "العبادل", "أولاد خضير", "إقلي", "تسابيت", "تامباوة", "تمقرة", "بني عباس", "بئر عوين", "عين زاوية", "القنادسة", "التام", "الريصاني", "أولاد رشيد", "أولاد يحيى", "بلعمر", "قرية العلم", "العوينات", "مشروع توقمعة", "أولاد الصالح", "أولاد الطرقي", "الجديد", "اوسرج", "أولاد بندة", "تامست"],
+      "53": ["عين صالح", "فوكرت", "إن غار", "بلبابة", "نقطة الحمد", "عين صالح", "تامزقراط", "أمرجو", "أفقصة", "إغزول", "تاظروك", "إمييقن", "تينانت", "إيفيغ", "أبأنق", "تيمقاوت", "عين قورصو", "عين زاوي", "تفراوت", "أبالى", "إميغمس", "تاوهدة", "عين الصفرة", "إيدريجان", "تيزوك", "الفلوس", "أين تضم", "أومال", "أوسرد", "تيني أمبار", "أزرف", "الشكاكة"],
+      "54": ["عين قزام", "تيت", "أنوي", "تيقزا", "أنجاد", "تامراقت", "تين ظهر", "اساو", "عين قزام", "تيمياوين", "تاغلة", "أوقن", "تيموين", "أسوف", "يغرغار", "أونيفت", "تيضف", "أزراتين", "تيمياوين", "إيراوان", "تيزوغار", "لملاح", "ترفاس", "تاغلالت", "تامييط", "أطار", "أزردين", "تيجماوي", "تيورارين", "أم الجيرار"],
+      "55": ["تقرت", "الطيط المنطقة", "بناسعد", "تماسط", "بلافجة", "توقرورت", "زاوية الخير", "الزبادة", "تقرت", "عين بوزيان", "لكامي", "الدعم", "عين العناصر", "الوطنية", "النصر", "الرباح", "وزانة", "الحويا", "الطينة", "أهل الرمل", "سيدي مطحون", "عين سيدي إبراهيم", "زاوية باي", "السدانة", "الخبازي", "مقارة", "البشير", "عين غزام", "المهمة", "سيدي قاسم", "أولاد مادي", "الخويطة", "تمسينيت", "قوران", "عين سفيحان", "بئر الجوراد", "أولاد بوغادة", "بئر الطبي", "الجليد", "قناة", "القبطية"],
+      "56": ["جانت", "برج الهواس", "تيميلون", "أزيلاز", "تمسكرا", "عين أميناس", "تيزة", "جانت", "أجده", "ويزران", "توفا", "المودري", "تينريرت", "إهرا", "تيسرت", "أزرف", "إيفيغ", "تازروك", "أكرب", "أويود", "تيورار", "إيغدمان", "أيت البطل", "قرية تاتية", "إيميغراز", "تاجموت", "تين أور", "تمهريت", "أسامضار", "تيشريوين", "أهقار", "عارم", "تيدس", "تيغزرين", "أوريال", "أوسفن", "تيزي نترار", "إزمضان", "أفانة", "تيديليت", "أكيس", "تازوزت", "إينسفان", "أوسار", "إيغريز", "تمراغت", "تيدوين", "أهقار الغربية", "إلفال", "ديسة"],
+      "57": ["المغير", "المرارة", "سيدي عمران", "أم الطيور", "المغير", "محزريو", "الطربان", "التندنت", "بلبادة", "عين سيدي معمر", "الرخمة", "سيدي طير", "الحدابة", "سليط", "السطح", "قارة بوزيد", "بئر لحماد", "الضمية", "المقرن", "الشلالة", "أولاد ضياء", "عين المذاب", "ديدين", "الحريا", "الوردية", "بني مارين", "لعصمة", "أم الغراس", "عين العرب", "صعدة", "بن يخلف"],
+      "58": ["المنيعة", "عين العرقة", "سيدي أمحمد بن عمر", "حاسي الغلة", "القصارة", "تيرسيس", "أولاد سعيد", "بئر عمران", "عين أم الميتة", "المنيعة", "قصر الشلالة", "تمنطيت", "أنقلة", "بئر الغلب", "عين مزاب", "رأس المنيعة", "الرملة", "بئر ونين", "العالية"]
+    };
+
+    function populateProvinces() {
+      var sel = document.getElementById('province-select');
+      WILAYAS.forEach(function(w) {
+        var opt = document.createElement('option');
+        opt.value = w.code;
+        opt.textContent = w.name + ' (' + w.code + ')';
+        sel.appendChild(opt);
+      });
+    }
+
+    function populateMunicipalities(code) {
+      var sel = document.getElementById('municipality-select');
+      sel.innerHTML = '';
+      var list = MUNICIPALITIES[code] || [];
+      if (list.length === 0) {
+        var opt0 = document.createElement('option');
+        opt0.disabled = true;
+        opt0.selected = true;
+        opt0.value = '';
+        opt0.textContent = 'لا توجد بلديات مسجلة';
+        sel.appendChild(opt0);
+        return;
+      }
+      var opt0 = document.createElement('option');
+      opt0.disabled = true;
+      opt0.selected = true;
+      opt0.value = '';
+      opt0.textContent = 'اختري البلدية';
+      sel.appendChild(opt0);
+      list.forEach(function(name) {
+        var opt = document.createElement('option');
+        opt.value = name;
+        opt.textContent = name;
+        sel.appendChild(opt);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      populateProvinces();
+      document.getElementById('province-select').addEventListener('change', function() {
+        populateMunicipalities(this.value);
+      });
+    });
+  </script>
+<!-- END: Wilayas & Municipalities Data Script -->
+<script data-purpose="form-submission">
+    document.getElementById('hero-support-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const form = e.target;
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      
+      submitBtn.textContent = 'جاري الإرسال...';
+      submitBtn.disabled = true;
+      
+      try {
+        const formData = new FormData(form);
+        
+        const response = await fetch('/api/submit', {
+          method: 'POST',
+          body: formData
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+          alert('تم إرسال النموذج بنجاح!');
+          form.reset();
+          
+          const fileNameDisplay = document.getElementById('file-name-display');
+          if (fileNameDisplay) {
+            fileNameDisplay.textContent = 'يمكنك سحب وإفلات الملفات هنا أيضاً';
+            fileNameDisplay.classList.remove('text-emerald-700', 'font-medium');
+            fileNameDisplay.classList.add('text-slate-500');
+          }
+        } else {
+          alert('حدث خطأ: ' + result.message);
+        }
+        
+      } catch (error) {
+        console.error('Error:', error);
+        alert('حدث خطأ أثناء إرسال النموذج. يرجى المحاولة مرة أخرى.');
+      } finally {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      }
+    });
+  </script>
+<!-- END: Form Submission Script -->
+
+<!-- BEGIN: Admin Panel Script (integrated) -->
+<script data-purpose="admin-panel-script">
+    (function() {
+      const sessionKey = 'library_admin_auth';
+      const panel = document.getElementById('admin-panel');
+      const loginBox = document.getElementById('admin-login-box');
+      const dashBox = document.getElementById('admin-dashboard-box');
+
+      function setAuthed() {
+        loginBox.classList.add('hidden');
+        dashBox.classList.remove('hidden');
+        loadRecords();
+      }
+
+      if (sessionStorage.getItem(sessionKey) === 'true') {
+        setAuthed();
+      }
+
+      document.getElementById('admin-toggle').addEventListener('click', function() {
+        panel.classList.toggle('hidden');
+        if (!panel.classList.contains('hidden') && sessionStorage.getItem(sessionKey) === 'true' && dashBox.classList.contains('hidden') === false) {
+          loadRecords();
+        }
+      });
+
+      document.getElementById('admin-close').addEventListener('click', function() {
+        panel.classList.add('hidden');
+      });
+
+      document.getElementById('admin-login-form').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const pw = document.getElementById('admin-password').value;
+        const err = document.getElementById('admin-login-error');
+        err.classList.add('hidden');
+        try {
+          const res = await fetch('/api/admin/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ password: pw })
+          });
+          const json = await res.json();
+          if (json.success) {
+            sessionStorage.setItem(sessionKey, 'true');
+            setAuthed();
+          } else {
+            err.classList.remove('hidden');
+          }
+        } catch (e) {
+          err.textContent = 'تعذر الاتصال بالخادم';
+          err.classList.remove('hidden');
+        }
+      });
+
+      document.getElementById('admin-logout').addEventListener('click', function() {
+        sessionStorage.removeItem(sessionKey);
+        location.reload();
+      });
+
+      const provinceMap = { '16': 'الجزائر', '15': 'تيزي وزو', '06': 'بجاية', '18': 'جيجل', '25': 'قسنطينة', '31': 'وهران', 'other': 'ولاية أخرى' };
+      const municipalityMap = { 'centre': 'وسط المدينة', 'zone1': 'البلدية الشمالية', 'zone2': 'البلدية الجنوبية', 'other': 'أخرى' };
+      const relationshipMap = { 'father': 'الأب', 'mother': 'الأم', 'legal_guardian': 'الولي الشرعي', 'other': 'أخرى' };
+      const genderMap = { 'male': 'ذكر', 'female': 'أنثى' };
+
+      function esc(s) {
+        const div = document.createElement('div');
+        div.textContent = s == null ? '' : String(s);
+        return div.innerHTML;
+      }
+
+      function formatDate(ts) {
+        if (!ts) return '-';
+        let d;
+        if (ts._seconds) d = new Date(ts._seconds * 1000);
+        else d = new Date(ts);
+        return d.toLocaleDateString('ar-DZ', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' });
+      }
+
+      let records = [];
+
+      async function loadRecords() {
+        try {
+          const res = await fetch('/api/submissions');
+          const json = await res.json();
+          if (json.success) {
+            records = json.data || [];
+            renderRecords();
+          } else {
+            alert('خطأ: ' + json.message);
+          }
+        } catch (e) {
+          alert('تعذر تحميل البيانات');
+        }
+      }
+
+      function renderFiles(files) {
+        if (!files || !files.length) return '-';
+        const isImage = function(f) {
+          return /jpeg|jpg|png|gif/.test((f.mimetype || '').toLowerCase()) ||
+                 /\.(jpe?g|png|gif)$/i.test(f.filename || '') ||
+                 /\.(jpe?g|png|gif)$/i.test(f.originalName || '');
+        };
+        const thumbs = files.map(function(f) {
+          var url = f.data ? ('data:' + (f.mimetype || 'application/octet-stream') + ';base64,' + f.data)
+                    : (f.downloadUrl || ('/uploads/' + encodeURIComponent(f.filename)));
+          var name = esc(f.originalName || f.filename);
+          if (isImage(f)) {
+            return '<a href="' + url + '" target="_blank" title="افتح الصورة: ' + name + '" class="inline-block relative group">' +
+                     '<img src="' + url + '" alt="' + name + '" class="w-14 h-14 object-cover rounded-lg border border-slate-200 cursor-pointer hover:ring-2 hover:ring-purple-500 transition" onerror="this.style.display=\'none\'">' +
+                   '</a>';
+          }
+          var ext = (f.originalName || f.filename || '').split('.').pop().toUpperCase();
+          return '<a href="' + url + '" target="_blank" download title="تحميل: ' + name + '" class="inline-flex items-center gap-1 px-2 py-1 rounded-lg border border-slate-200 bg-slate-50 hover:bg-purple-50 hover:border-purple-300 text-xs font-semibold text-slate-700 transition">' +
+                   '<svg class="w-3.5 h-3.5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0L8 8m4 4V4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>' +
+                   esc(ext || 'ملف') +
+                 '</a>';
+        });
+        return '<div class="flex flex-wrap gap-2">' + thumbs.join('') + '</div>';
+      }
+
+      function renderRecords() {
+        const total = document.getElementById('admin-stat-total');
+        if (total) total.textContent = records.length;
+        const q = document.getElementById('admin-search').value.trim().toLowerCase();
+        const filtered = records.filter(r => {
+          if (!q) return true;
+          return [r.childName, r.guardianName, r.guardianPhone, r.province, r.municipality]
+            .join(' ').toLowerCase().includes(q);
+        });
+        const tbody = document.getElementById('admin-table-body');
+        const empty = document.getElementById('admin-empty');
+        tbody.innerHTML = '';
+        if (filtered.length === 0) {
+          empty.classList.remove('hidden');
+          empty.textContent = 'لا توجد بيانات مسجلة بعد';
+        } else {
+          empty.classList.add('hidden');
+          filtered.forEach(r => {
+            const files = renderFiles(r.files);
+            const tr = document.createElement('tr');
+            tr.className = 'border-t border-slate-100 hover:bg-purple-50/50';
+            tr.innerHTML = `
+              <td class="px-4 py-3 font-bold text-slate-900">${esc(r.childName) || '-'}</td>
+              <td class="px-4 py-3">${r.childAge ?? '-'}</td>
+              <td class="px-4 py-3">${genderMap[r.gender] || '-'}</td>
+              <td class="px-4 py-3" dir="ltr">${esc(r.guardianPhone) || '-'}</td>
+              <td class="px-4 py-3">${provinceMap[r.province] || esc(r.province) || '-'}</td>
+              <td class="px-4 py-3">${municipalityMap[r.municipality] || esc(r.municipality) || '-'}</td>
+              <td class="px-4 py-3">${esc(r.guardianName) || '-'}</td>
+              <td class="px-4 py-3">${relationshipMap[r.relationship] || '-'}</td>
+              <td class="px-4 py-3 text-xs">${formatDate(r.createdAt)}</td>
+              <td class="px-4 py-3">${files}</td>
+            `;
+            tbody.appendChild(tr);
+          });
+        }
+      }
+
+      document.getElementById('admin-search').addEventListener('input', renderRecords);
+      document.getElementById('admin-refresh').addEventListener('click', loadRecords);
+      document.getElementById('admin-export').addEventListener('click', function() {
+        if (!records.length) { alert('لا توجد بيانات للتنزيل'); return; }
+        const headers = ['اسم الطفل', 'العمر', 'الجنس', 'رقم الهاتف', 'الولاية', 'البلدية', 'اسم الولي', 'صلة القرابة', 'الموافقة', 'التاريخ', 'عدد الملفات'];
+        const rows = records.map(r => [
+          r.childName || '', r.childAge ?? '', genderMap[r.gender] || '',
+          r.guardianPhone || '', provinceMap[r.province] || r.province || '',
+          municipalityMap[r.municipality] || r.municipality || '', r.guardianName || '',
+          relationshipMap[r.relationship] || '', r.guardianConsent ? 'نعم' : 'لا',
+          formatDate(r.createdAt), (r.files && r.files.length) ? r.files.length : 0
+        ]);
+        const csv = [headers, ...rows].map(row => row.map(c => '"' + String(c).replace(/"/g, '""') + '"').join(',')).join('\n');
+        const blob = new Blob(['\ufeff' + csv], { type: 'text/csv;charset=utf-8;' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'المسجلون.csv';
+        link.click();
+        URL.revokeObjectURL(link.href);
+      });
+    })();
+  </script>
+<!-- END: Admin Panel Script -->
+
+
+</body></html>

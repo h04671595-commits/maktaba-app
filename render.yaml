@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: library-form-web
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: 20.11.1
+      # ADMIN_PASSWORD: كلمة مرور لوحة الأدمن
+      # اضبطها يدوياً من إعدادات الخدمة في Render
+      - key: ADMIN_PASSWORD
+        sync: false
+      # SERVICE_ACCOUNT_JSON: محتوى serviceAccountKey.json كاملاً (JSON مضغوط)
+      # اضبطه يدوياً من إعدادات الخدمة في Render
+      - key: SERVICE_ACCOUNT_JSON
+        sync: false
