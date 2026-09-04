@@ -125,13 +125,6 @@
 <div class="relative max-w-xs">
 <select class="w-full bg-slate-50 border border-slate-300 text-slate-700 py-2.5 px-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-purple-600 cursor-pointer" id="province-select" name="province">
 <option disabled="" selected="" value="">اختيار</option>
-<option value="16">الجزائر (16)</option>
-<option value="15">تيزي وزو (15)</option>
-<option value="06">بجاية (06)</option>
-<option value="18">جيجل (18)</option>
-<option value="25">قسنطينة (25)</option>
-<option value="31">وهران (31)</option>
-<option value="other">ولاية أخرى</option>
 </select>
 </div>
 </section>
@@ -141,12 +134,8 @@
           البلدية <span class="text-red-500">*</span>
 </label>
 <div class="relative max-w-xs">
-<select class="w-full bg-slate-50 border border-slate-300 text-slate-700 py-2.5 px-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-purple-600 cursor-pointer" id="municipality-select" name="municipality" required="">
-<option disabled="" selected="" value="">اختيار</option>
-<option value="centre">وسط المدينة</option>
-<option value="zone1">البلدية الشمالية</option>
-<option value="zone2">البلدية الجنوبية</option>
-<option value="other">أخرى</option>
+<select class="w-full bg-slate-50 border border-slate-300 text-slate-700 py-2.5 px-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-purple-600 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed" id="municipality-select" name="municipality" required="" disabled="">
+<option disabled="" selected="" value="">اختر الولاية أولاً</option>
 </select>
 </div>
 </section>
@@ -311,6 +300,42 @@
     }
   </script>
 <!-- END: Form Submission Script -->
+<script src="/wilayas-data.js"></script>
+<script data-purpose="wilaya-municipality-linking">
+    const provinceSelect = document.getElementById('province-select');
+    const municipalitySelect = document.getElementById('municipality-select');
+    const data = window.WILAYAS_MUNICIPALITIES || {};
 
+    Object.keys(data).forEach(function(code) {
+      const opt = document.createElement('option');
+      opt.value = code;
+      opt.textContent = data[code].name + ' (' + code + ')';
+      provinceSelect.appendChild(opt);
+    });
+
+    function resetMunicipalities() {
+      municipalitySelect.innerHTML = '<option disabled selected value="">اختر الولاية أولاً</option>';
+      municipalitySelect.disabled = true;
+    }
+
+    provinceSelect.addEventListener('change', function() {
+      const code = provinceSelect.value;
+      resetMunicipalities();
+      if (!code || !data[code]) return;
+      const communes = data[code].communes.filter(Boolean);
+      municipalitySelect.innerHTML = '<option disabled selected value="">اختيار</option>';
+      communes.forEach(function(name) {
+        const opt = document.createElement('option');
+        opt.value = name;
+        opt.textContent = name;
+        municipalitySelect.appendChild(opt);
+      });
+      if (communes.length) {
+        municipalitySelect.disabled = false;
+      }
+    });
+
+    resetMunicipalities();
+  </script>
 
 </body></html>
